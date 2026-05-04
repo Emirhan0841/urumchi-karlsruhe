@@ -9,6 +9,7 @@ export default function ImprintPage() {
 
   useEffect(() => {
     const fetchSettings = async () => {
+      if (!supabase) return;
       const { data } = await supabase
         .from('restaurant_settings')
         .select('*')
