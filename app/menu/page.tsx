@@ -19,6 +19,11 @@ export default function MenuPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (!supabase) {
+          setLoading(false);
+          return;
+        }
+
         const [catsRes, itemsRes] = await Promise.all([
           supabase.from('categories').select('*').eq('is_active', true).order('sort_order'),
           supabase.from('menu_items').select('*').eq('is_active', true).order('sort_order'),

@@ -13,6 +13,11 @@ export default function OrderPage() {
   useEffect(() => {
     const fetchPlatforms = async () => {
       try {
+        if (!supabase) {
+          setLoading(false);
+          return;
+        }
+
         const { data } = await supabase
           .from('order_platforms')
           .select('*')

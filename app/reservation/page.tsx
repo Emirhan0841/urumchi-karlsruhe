@@ -40,6 +40,12 @@ export default function ReservationPage() {
     setLoading(true);
     setError('');
 
+    if (!supabase) {
+      setError('Reservierungssystem nicht verfügbar');
+      setLoading(false);
+      return;
+    }
+
     try {
       const { error: insertError } = await supabase.from('reservations').insert({
         name: formData.name,

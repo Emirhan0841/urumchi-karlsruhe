@@ -22,7 +22,8 @@
       "Bash(npm install *)",
       "Bash(npm run *)",
       "Bash(git commit -m 'Fix Netlify deployment: resolve nanoid version and TypeScript issues *)",
-      "Bash(git commit -m 'Fix Netlify prerender: guard Supabase client creation when env vars missing *)"
+      "Bash(git commit -m 'Fix Netlify prerender: guard Supabase client creation when env vars missing *)",
+      "Bash(git commit -m 'Add null checks for Supabase in all public pages *)"
     ]
   },
   "enabledPlugins": {

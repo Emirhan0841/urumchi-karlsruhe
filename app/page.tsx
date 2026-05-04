@@ -16,6 +16,11 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (!supabase) {
+          setLoading(false);
+          return;
+        }
+
         const [settingsRes, itemsRes, reviewsRes, hoursRes] = await Promise.all([
           supabase.from('restaurant_settings').select('*').single(),
           supabase.from('menu_items').select('*').eq('is_active', true).limit(3),
