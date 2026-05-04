@@ -5,6 +5,7 @@ Moderne Restaurant-Website mit digitaler Speisekarte, Reservierungssystem und Ad
 ## Features
 
 ✨ **Öffentliche Website**
+
 - Moderne, mobile-first Homepage mit Logo
 - Digitale Speisekarte mit Suchfunktion und Filtern
 - Online-Bestellplattformen (Wolt, Lieferando.de)
@@ -13,6 +14,7 @@ Moderne Restaurant-Website mit digitaler Speisekarte, Reservierungssystem und Ad
 - Responsive Design
 
 🔧 **Admin-Panel**
+
 - Speisekarte verwalten (CRUD)
 - Kategorien bearbeiten
 - Rezensionen verwalten
@@ -22,6 +24,7 @@ Moderne Restaurant-Website mit digitaler Speisekarte, Reservierungssystem und Ad
 - Restaurantdaten bearbeiten
 
 🛡️ **Backend**
+
 - Supabase PostgreSQL Datenbank
 - Supabase Auth für Admin-Login
 - Row Level Security (RLS) für Datenschutz
@@ -135,7 +138,6 @@ npm run dev
 - **Farben:** Dunkle, warme und elegante Palette
   - Dunkelbraun (#1a1410), Creme (#f5f1ed), Gold (#d4a574)
   - Rustikale Akzente für uigurisches Restaurant-Flair
-  
 - **Schriften:**
   - **Amatic SC** - Handschriftlich für Überschriften
   - **Inter** - Modern und lesbar für Body-Text
@@ -171,6 +173,7 @@ npm run dev
 ## Support
 
 Bei Fragen oder Problemen kontaktieren Sie:
+
 - **E-Mail:** uyghur_urumchi@outlook.de
 - **Adresse:** Englerstraße 14, 76131 Karlsruhe
 

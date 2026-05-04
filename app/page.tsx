@@ -40,7 +40,7 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const weekdays = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+  const weekdays = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag','Sonntag'];
   const currentDay = new Date().getDay();
   const todayHours = openingHours.find((h) => h.weekday === currentDay);
 
