@@ -55,12 +55,6 @@ export function Header() {
           <Link href="/order" className="hover:text-restaurant-gold transition">
             Online bestellen
           </Link>
-          <Link
-            href="/login"
-            className="text-sm px-4 py-4 bg-restaurant-primary text-white rounded-lg font-medium hover:bg-restaurant-primary-dark transition-colors duration-150"
-          >
-            Admin
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -112,13 +106,6 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Online bestellen
-            </Link>
-            <Link
-              href="/login"
-              className="text-sm px-4 py-4 bg-restaurant-primary text-white rounded-lg font-medium hover:bg-restaurant-primary-dark transition-colors duration-150 inline-block"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Admin
             </Link>
           </div>
         </div>
