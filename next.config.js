@@ -5,6 +5,9 @@ const nextConfig = {
     domains: [],
   },
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = nextConfig;

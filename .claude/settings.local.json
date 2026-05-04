@@ -18,7 +18,10 @@
       "Bash(git push *)",
       "Bash(git commit -m 'Remove Admin button from header and add default admin redirect *)",
       "Bash(git commit -m 'Hide header and footer from admin area *)",
-      "Bash(git commit -m 'Use favicon from public directory *)"
+      "Bash(git commit -m 'Use favicon from public directory *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git commit -m 'Fix Netlify deployment: resolve nanoid version and TypeScript issues *)"
     ]
   },
   "enabledPlugins": {

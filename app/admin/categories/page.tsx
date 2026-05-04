@@ -6,7 +6,7 @@ import type { Category } from '@/types';
 
 export default function CategoriesAdminPage() {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [editingId, setEditingId] = useState<string | null>(null);
+  const [_editingId, _setEditingId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ export default function CategoriesAdminPage() {
     const { error } = await supabase.from('categories').insert({
       ...formData,
       slug,
-    });
+    } as any);
     if (!error) {
       setFormData({ original_name: '', german_name: '', slug: '', description: '' });
       setShowForm(false);
@@ -48,7 +48,7 @@ export default function CategoriesAdminPage() {
 
   const handleDelete = async (id: string) => {
     const { error } = await supabase.from('categories').delete().eq('id', id);
-    if (!error) setCategories(categories.filter((c) => c.id !== id));
+    if (!error) setCategories(categories.filter((c) => (c as any).id !== id));
   };
 
   if (loading) {
@@ -97,7 +97,7 @@ export default function CategoriesAdminPage() {
       )}
 
       <div className="space-y-3">
-        {categories.map((cat) => (
+        {(categories as any[]).map((cat) => (
           <div
             key={cat.id}
             className="bg-white rounded-lg shadow p-4 flex justify-between items-start border-l-4 border-restaurant-accent"

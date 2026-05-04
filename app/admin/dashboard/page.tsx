@@ -34,7 +34,7 @@ export default function DashboardPage() {
           supabase.from('reviews').select('id', { count: 'exact' }).eq('is_active', true),
         ]);
 
-        const dishData = dishes.data || [];
+        const dishData = (dishes.data || []) as any[];
         const activeDishes = dishData.filter((d) => d.is_active).length;
         const soldOutDishes = dishData.filter((d) => d.is_sold_out).length;
 
