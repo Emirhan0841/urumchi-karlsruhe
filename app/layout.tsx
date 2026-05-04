@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { ConditionalHeader } from "@/components/ConditionalHeader";
+import { ConditionalFooter } from "@/components/ConditionalFooter";
 
 export const metadata: Metadata = {
   title: "Ürümchi Uigurisches Restaurant - Karlsruhe",
@@ -23,9 +23,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png"/>
       </head>
       <body className="h-full flex flex-col">
-        <Header />
+        <ConditionalHeader />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );
