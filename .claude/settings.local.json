@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\emirh\\\\VscodeProjects\\\\ürümchi\\\\public\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object Name, BaseName, Extension)",
+      "Bash(ConvertTo-Json)",
+      "PowerShell(Copy-Item *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\emirh\\\\VscodeProjects\\\\ürümchi\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object Name, Mode)",
+      "PowerShell(ls -Force \"C:\\\\Users\\\\emirh\\\\VscodeProjects\\\\urumchi\\\\\" | Where-Object { $_.Name -match \"^\\(package\\\\.json|tsconfig|next\\\\.config|\\\\.env\\)\" })",
+      "PowerShell(head *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\emirh\\\\VscodeProjects\\\\urumchi\" -Recurse -Depth 2 | Where-Object { $_.PSIsContainer } | Select-Object FullName -First 30)",
+      "Bash(Get-ChildItem *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Initial commit: Ürümchi Restaurant website with fixes *)"
+    ]
+  },
+  "enabledPlugins": {
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+  }
+}
