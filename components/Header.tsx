@@ -43,16 +43,16 @@ export function Header() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 items-center">
-          <Link href="/menu" className="hover:text-restaurant-gold transition">
+          <Link href="/menu" className="font-display hover:text-restaurant-gold transition">
             Speisekarte
           </Link>
           <Link
             href="/reservation"
-            className="hover:text-restaurant-gold transition"
+            className="font-display hover:text-restaurant-gold transition"
           >
             Reservieren
           </Link>
-          <Link href="/order" className="hover:text-restaurant-gold transition">
+          <Link href="/order" className="font-display hover:text-restaurant-gold transition">
             Online bestellen
           </Link>
         </div>
@@ -88,21 +88,21 @@ export function Header() {
           <div className="container-narrow py-4 flex flex-col gap-4">
             <Link
               href="/menu"
-              className="hover:text-restaurant-gold transition"
+              className="font-display hover:text-restaurant-gold transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Speisekarte
             </Link>
             <Link
               href="/reservation"
-              className="hover:text-restaurant-gold transition"
+              className="font-display hover:text-restaurant-gold transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Reservieren
             </Link>
             <Link
               href="/order"
-              className="hover:text-restaurant-gold transition"
+              className="font-display hover:text-restaurant-gold transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Online bestellen
