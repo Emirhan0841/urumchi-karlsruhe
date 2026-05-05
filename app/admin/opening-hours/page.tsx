@@ -68,88 +68,72 @@ export default function OpeningHoursAdminPage() {
 
               {!hour.is_closed && (
                 <>
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="flex items-center gap-2">
-                      <label htmlFor={`opens-${hour.id}`} className="text-sm">
-                        Öffnet:
-                      </label>
-                      <input
-                        id={`opens-${hour.id}`}
-                        type="time"
-                        value={hour.opens_at || ''}
-                        onChange={(e) =>
-                          handleUpdate(hour.id, 'opens_at', e.target.value)
-                        }
-                        className="px-2 py-1 border rounded"
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <label htmlFor={`closes-${hour.id}`} className="text-sm">
-                        Schließt:
-                      </label>
-                      <input
-                        id={`closes-${hour.id}`}
-                        type="time"
-                        value={hour.closes_at || ''}
-                        onChange={(e) =>
-                          handleUpdate(hour.id, 'closes_at', e.target.value)
-                        }
-                        className="px-2 py-1 border rounded"
-                      />
+                  <div>
+                    <h4 className="font-semibold text-sm text-restaurant-dark mb-2">Öffnungszeit Block 1:</h4>
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <label htmlFor={`opens-${hour.id}`} className="text-sm">
+                          Öffnet:
+                        </label>
+                        <input
+                          id={`opens-${hour.id}`}
+                          type="time"
+                          value={hour.opens_at || ''}
+                          onChange={(e) =>
+                            handleUpdate(hour.id, 'opens_at', e.target.value)
+                          }
+                          className="px-2 py-1 border rounded"
+                        />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <label htmlFor={`closes-${hour.id}`} className="text-sm">
+                          Schließt:
+                        </label>
+                        <input
+                          id={`closes-${hour.id}`}
+                          type="time"
+                          value={hour.closes_at || ''}
+                          onChange={(e) =>
+                            handleUpdate(hour.id, 'closes_at', e.target.value)
+                          }
+                          className="px-2 py-1 border rounded"
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 text-gray-600">
-                    <label className="flex items-center gap-2 text-sm">
-                      <input
-                        type="checkbox"
-                        checked={!!(hour.opens_at_2)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            handleUpdate(hour.id, 'opens_at_2', '17:00');
-                            handleUpdate(hour.id, 'closes_at_2', '21:00');
-                          } else {
-                            handleUpdate(hour.id, 'opens_at_2', null);
-                            handleUpdate(hour.id, 'closes_at_2', null);
+                  <div>
+                    <h4 className="font-semibold text-sm text-restaurant-dark mb-2">Öffnungszeit Block 2:</h4>
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <label htmlFor={`opens2-${hour.id}`} className="text-sm">
+                          Öffnet:
+                        </label>
+                        <input
+                          id={`opens2-${hour.id}`}
+                          type="time"
+                          value={hour.opens_at_2 || ''}
+                          onChange={(e) =>
+                            handleUpdate(hour.id, 'opens_at_2', e.target.value)
                           }
-                        }}
-                        className="w-4 h-4"
-                      />
-                      Nachmittags geöffnet
-                    </label>
-
-                    {hour.opens_at_2 && (
-                      <>
-                        <div className="flex items-center gap-2">
-                          <label htmlFor={`opens2-${hour.id}`} className="text-sm">
-                            Öffnet:
-                          </label>
-                          <input
-                            id={`opens2-${hour.id}`}
-                            type="time"
-                            value={hour.opens_at_2 || ''}
-                            onChange={(e) =>
-                              handleUpdate(hour.id, 'opens_at_2', e.target.value)
-                            }
-                            className="px-2 py-1 border rounded"
-                          />
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <label htmlFor={`closes2-${hour.id}`} className="text-sm">
-                            Schließt:
-                          </label>
-                          <input
-                            id={`closes2-${hour.id}`}
-                            type="time"
-                            value={hour.closes_at_2 || ''}
-                            onChange={(e) =>
-                              handleUpdate(hour.id, 'closes_at_2', e.target.value)
-                            }
-                            className="px-2 py-1 border rounded"
-                          />
-                        </div>
-                      </>
-                    )}
+                          className="px-2 py-1 border rounded"
+                        />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <label htmlFor={`closes2-${hour.id}`} className="text-sm">
+                          Schließt:
+                        </label>
+                        <input
+                          id={`closes2-${hour.id}`}
+                          type="time"
+                          value={hour.closes_at_2 || ''}
+                          onChange={(e) =>
+                            handleUpdate(hour.id, 'closes_at_2', e.target.value)
+                          }
+                          className="px-2 py-1 border rounded"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </>
               )}
