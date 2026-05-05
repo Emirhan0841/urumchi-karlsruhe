@@ -118,6 +118,8 @@ CREATE TABLE IF NOT EXISTS opening_hours (
   weekday integer NOT NULL CHECK (weekday >= 0 AND weekday <= 6),
   opens_at time,
   closes_at time,
+  opens_at_2 time,
+  closes_at_2 time,
   is_closed boolean DEFAULT false,
   note text,
   UNIQUE(weekday)

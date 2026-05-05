@@ -142,9 +142,16 @@ export default function Home() {
                 {hours.is_closed ? (
                   <p className="text-restaurant-brown">Geschlossen</p>
                 ) : (
-                  <p className="text-restaurant-text">
-                    {hours.opens_at?.slice(0, 5)} - {hours.closes_at?.slice(0, 5)}
-                  </p>
+                  <div className="text-restaurant-text">
+                    <p>
+                      {hours.opens_at?.slice(0, 5)} - {hours.closes_at?.slice(0, 5)}
+                    </p>
+                    {hours.opens_at_2 && hours.closes_at_2 && (
+                      <p>
+                        {hours.opens_at_2?.slice(0, 5)} - {hours.closes_at_2?.slice(0, 5)}
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             ))}

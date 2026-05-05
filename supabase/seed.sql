@@ -204,13 +204,13 @@ VALUES
 ON CONFLICT DO NOTHING;
 
 -- Insert Opening Hours (default)
-INSERT INTO opening_hours (weekday, opens_at, closes_at, is_closed)
+INSERT INTO opening_hours (weekday, opens_at, closes_at, opens_at_2, closes_at_2, is_closed)
 VALUES
-  (0, '11:00'::time, '22:00'::time, false), -- Sunday
-  (1, '11:00'::time, '23:00'::time, false), -- Monday
-  (2, '11:00'::time, '23:00'::time, false), -- Tuesday
-  (3, '11:00'::time, '23:00'::time, false), -- Wednesday
-  (4, '11:00'::time, '23:00'::time, false), -- Thursday
-  (5, '11:00'::time, '23:30'::time, false), -- Friday
-  (6, '11:00'::time, '23:30'::time, false)  -- Saturday
+  (0, '11:30'::time, '21:00'::time, NULL::time, NULL::time, false),       -- Sunday (Sonntag)
+  (1, NULL::time, NULL::time, NULL::time, NULL::time, true),               -- Monday (Montag - Geschlossen)
+  (2, '11:30'::time, '15:00'::time, '17:00'::time, '21:00'::time, false), -- Tuesday (Dienstag)
+  (3, '11:30'::time, '15:00'::time, '17:00'::time, '21:00'::time, false), -- Wednesday (Mittwoch)
+  (4, '11:30'::time, '15:00'::time, '17:00'::time, '21:00'::time, false), -- Thursday (Donnerstag)
+  (5, '11:30'::time, '15:00'::time, '17:00'::time, '21:00'::time, false), -- Friday (Freitag)
+  (6, '11:30'::time, '21:00'::time, NULL::time, NULL::time, false)        -- Saturday (Samstag)
 ON CONFLICT (weekday) DO NOTHING;

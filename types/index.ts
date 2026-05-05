@@ -321,6 +321,8 @@ export type Database = {
           weekday: number;
           opens_at: string | null;
           closes_at: string | null;
+          opens_at_2: string | null;
+          closes_at_2: string | null;
           is_closed: boolean;
           note: string | null;
         };
@@ -329,6 +331,8 @@ export type Database = {
           weekday: number;
           opens_at?: string | null;
           closes_at?: string | null;
+          opens_at_2?: string | null;
+          closes_at_2?: string | null;
           is_closed?: boolean;
           note?: string | null;
         };
@@ -337,6 +341,8 @@ export type Database = {
           weekday?: number;
           opens_at?: string | null;
           closes_at?: string | null;
+          opens_at_2?: string | null;
+          closes_at_2?: string | null;
           is_closed?: boolean;
           note?: string | null;
         };
