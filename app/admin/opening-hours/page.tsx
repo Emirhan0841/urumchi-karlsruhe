@@ -22,18 +22,20 @@ export default function OpeningHoursAdminPage() {
     fetchData();
   }, []);
 
-  const handleUpdate = async (id: string, field: string, value: any) => {
-    const { error } = await supabase
+  const handleUpdate = (id: string, field: string, value: any) => {
+    setHours(
+      hours.map((h) =>
+        h.id === id ? { ...h, [field]: value } : h
+      )
+    );
+
+    supabase
       .from('opening_hours')
       .update({ [field]: value })
-      .eq('id', id);
-    if (!error) {
-      setHours(
-        hours.map((h) =>
-          h.id === id ? { ...h, [field]: value } : h
-        )
-      );
-    }
+      .eq('id', id)
+      .catch((error) => {
+        console.error('Failed to update opening hours:', error);
+      });
   };
 
   if (loading) {
