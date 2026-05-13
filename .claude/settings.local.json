@@ -26,7 +26,15 @@
       "Bash(git commit -m 'Add null checks for Supabase in all public pages *)",
       "Bash(git commit -m 'Update impressum and privacy policy with actual content *)",
       "Bash(git commit -m 'Use display font for header navigation *)",
-      "Bash(git commit -m 'Increase header navigation font size *)"
+      "Bash(git commit -m 'Increase header navigation font size *)",
+      "Bash(git commit -m ' *)",
+      "Bash(Start-Sleep -Seconds 4)",
+      "PowerShell(supabase *)",
+      "Bash(curl -s -X PATCH -H 'apikey: sb_publishable_RZvsC2TZ5Hu12Pmg7Let4g_-bnBBgrN' -H 'Content-Type: application/json' -d '{\"is_closed\":true,\"opens_at\":null,\"closes_at\":null}' 'https://hynzjsoslbiizrcsrqcy.supabase.co/rest/v1/opening_hours?id=eq.479bbcd0-21a0-4a21-b7f2-8f8e1da96e26')",
+      "Bash(curl -s -X PATCH -H 'apikey: sb_publishable_RZvsC2TZ5Hu12Pmg7Let4g_-bnBBgrN' -H 'Content-Type: application/json' -d '{\"is_closed\":false,\"opens_at\":\"11:30\",\"closes_at\":\"15:00\"}' 'https://hynzjsoslbiizrcsrqcy.supabase.co/rest/v1/opening_hours?id=eq.23342a23-34bd-4401-a099-91b47ade6e6d')",
+      "Bash(curl -s -X PATCH -H 'apikey: sb_publishable_RZvsC2TZ5Hu12Pmg7Let4g_-bnBBgrN' -H 'Content-Type: application/json' -d '{\"is_closed\":false,\"opens_at\":\"11:30\",\"closes_at\":\"15:00\"}' 'https://hynzjsoslbiizrcsrqcy.supabase.co/rest/v1/opening_hours?id=eq.1b642ac4-b32b-42cd-8279-7713750410b5')",
+      "Bash(curl -s -X PATCH -H 'apikey: sb_publishable_RZvsC2TZ5Hu12Pmg7Let4g_-bnBBgrN' -H 'Content-Type: application/json' -d '{\"is_closed\":false,\"opens_at\":\"11:30\",\"closes_at\":\"15:00\"}' 'https://hynzjsoslbiizrcsrqcy.supabase.co/rest/v1/opening_hours?id=eq.fae6310f-0437-48fb-9e46-19042c7e74b1')",
+      "Bash(curl -s -X PATCH -H 'apikey: sb_publishable_RZvsC2TZ5Hu12Pmg7Let4g_-bnBBgrN' -H 'Content-Type: application/json' -d '{\"is_closed\":false,\"opens_at\":\"11:30\",\"closes_at\":\"21:00\"}' 'https://hynzjsoslbiizrcsrqcy.supabase.co/rest/v1/opening_hours?id=eq.d6f4d032-e356-4dfc-98f5-d14b2f4d6868')"
     ]
   },
   "enabledPlugins": {

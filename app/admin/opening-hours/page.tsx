@@ -9,6 +9,8 @@ const weekdayNames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag',
 export default function OpeningHoursAdminPage() {
   const [hours, setHours] = useState<OpeningHours[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,14 +30,41 @@ export default function OpeningHoursAdminPage() {
         h.id === id ? { ...h, [field]: value } : h
       )
     );
+    setSaveMessage(null);
+  };
 
-    supabase
-      .from('opening_hours')
-      .update({ [field]: value })
-      .eq('id', id)
-      .catch((error) => {
-        console.error('Failed to update opening hours:', error);
-      });
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      for (const hour of hours) {
+        const updateData = {
+          is_closed: hour.is_closed,
+          opens_at: hour.opens_at || null,
+          closes_at: hour.closes_at || null,
+          opens_at_2: hour.opens_at_2 || null,
+          closes_at_2: hour.closes_at_2 || null,
+        };
+
+        const { data, error } = await supabase
+          .from('opening_hours')
+          .update(updateData)
+          .eq('id', hour.id);
+
+        console.log('Update response:', { data, error, id: hour.id });
+
+        if (error) {
+          console.error(`Error updating ${hour.id}:`, error);
+          throw new Error(error.message || JSON.stringify(error));
+        }
+      }
+      setSaveMessage('Öffnungszeiten gespeichert!');
+      setTimeout(() => setSaveMessage(null), 3000);
+    } catch (error) {
+      console.error('Failed to save opening hours:', error);
+      setSaveMessage(`Fehler beim Speichern: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}`);
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (loading) {
@@ -44,7 +73,22 @@ export default function OpeningHoursAdminPage() {
 
   return (
     <div>
-      <h1 className="font-display text-3xl text-restaurant-dark mb-6">Öffnungszeiten</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="font-display text-3xl text-restaurant-dark">Öffnungszeiten</h1>
+        <button
+          onClick={handleSave}
+          disabled={saving}
+          className="px-6 py-2 bg-restaurant-accent text-white rounded-lg font-semibold hover:bg-opacity-90 disabled:opacity-50 transition-all"
+        >
+          {saving ? 'Wird gespeichert...' : 'Speichern'}
+        </button>
+      </div>
+
+      {saveMessage && (
+        <div className={`mb-4 p-3 rounded-lg ${saveMessage.includes('Fehler') ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+          {saveMessage}
+        </div>
+      )}
 
       <div className="space-y-4">
         {hours.map((hour) => (
@@ -69,9 +113,9 @@ export default function OpeningHoursAdminPage() {
               </label>
 
               {!hour.is_closed && (
-                <>
+                <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-sm text-restaurant-dark mb-2">Öffnungszeit Block 1:</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Block 1</h4>
                     <div className="flex flex-col md:flex-row md:items-center gap-4">
                       <div className="flex items-center gap-2">
                         <label htmlFor={`opens-${hour.id}`} className="text-sm">
@@ -105,7 +149,7 @@ export default function OpeningHoursAdminPage() {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-sm text-restaurant-dark mb-2">Öffnungszeit Block 2:</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Block 2</h4>
                     <div className="flex flex-col md:flex-row md:items-center gap-4">
                       <div className="flex items-center gap-2">
                         <label htmlFor={`opens2-${hour.id}`} className="text-sm">
@@ -137,7 +181,7 @@ export default function OpeningHoursAdminPage() {
                       </div>
                     </div>
                   </div>
-                </>
+                </div>
               )}
 
               {hour.note && (
